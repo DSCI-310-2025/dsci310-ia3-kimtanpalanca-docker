@@ -25,10 +25,10 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: dockerfile-practice
+          images: ${{ secrets.DOCKER_USERNAME }}/dockerfile-practice  
           tags: |
-            type=raw, value={{sha}},enable=${{github.ref_type != 'tag' }}
-            type=raw, value=latest
+            type=sha
+            type=raw,value=latest
 
       - name: Build and push Docker image
         uses: docker/build-push-action@v6
@@ -36,5 +36,6 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ steps.meta.outputs.tags }}
+          tags: ${{ secrets.DOCKER_USERNAME }}/dockerfile-practice:latest  
           labels: ${{ steps.meta.outputs.labels }}
+

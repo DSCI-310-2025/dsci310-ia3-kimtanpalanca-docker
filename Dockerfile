@@ -12,3 +12,5 @@ RUN R -e "install.packages('renv', repos='http://cran.rstudio.com')"
 RUN R -e "renv::restore()"
 
 USER rstudio
+
+LABEL description = "dsci310 ia3"
