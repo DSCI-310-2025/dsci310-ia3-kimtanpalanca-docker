@@ -13,4 +13,4 @@ RUN R -e "renv::restore()"
 
 USER rstudio
 
-LABEL description: "DSCI310 ia3"
+LABEL description: "DSCI310 individual assignment 3"
