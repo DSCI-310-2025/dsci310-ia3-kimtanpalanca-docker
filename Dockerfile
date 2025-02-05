@@ -8,7 +8,7 @@ COPY dsci310-cowsay-script.R home/rstudio/dsci310-cowsay-script.R
 
 WORKDIR /home/rstudio
 
-RUN R -e "install.packages('renv', repos='http://cran.rstudio.com', version = 1.1.0)"
+RUN R -e "install.packages('renv', repos='http://cran.rstudio.com')"
 RUN R -e "renv::restore()"
 
 USER rstudio
